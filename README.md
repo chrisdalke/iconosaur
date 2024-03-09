@@ -9,24 +9,49 @@ app development workflow step as a pre-build step, but can also be run as a stan
 
 See Supported Outputs for a list of available output types.
 
+## Supports
+
+- Input files
+- Varied resolution output files
+- Automatic resizing & "best fit"
+- background
+
+## Installation
+
+Iconosaur requires Node.JS v19 or above.
+
+`npm install -g iconosaur`
+
+or
+
+`npx iconosaur`
+
 ## Usage
 
-### Installation
-
-```
-npm install -g iconosaur
-```
+As a CLI:
 
 ```
 iconosaur --input ./input.png --config config.json --output ./dist/icons
 ```
 
-###
+As a pre-build step in your Javascript application:
 
-## Configuration
+Update your package.json to run iconosaur as a prebuild script.
+
+```
+{
+    ...
+    "prebuild": "iconosaur-cli <input> <output>",
+}
+
+```
+
+## Configuration API
 
 ## Inputs
 
 ## Outputs
 
 ## License
+
+MIT

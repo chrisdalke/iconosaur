@@ -4,6 +4,7 @@
   "description": "An icon & image generation tool for app developers.",
   "main": "./src/index.js",
   "bin": "./src/index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +19,10 @@
   },
   "homepage": "https://github.com/chrisdalke/iconosaur-cli#readme",
   "dependencies": {
+    "commander": "^12.0.0",
     "inquirer": "^9.2.15",
-    "sharp": "^0.33.2"
+    "parse-css-color": "^0.2.1",
+    "sharp": "^0.33.2",
+    "values.js": "^2.1.1"
   }
 }

@@ -1,13 +1,13 @@
 {
-  "name": "iconosaur-cli",
-  "version": "0.0.1",
+  "name": "iconosaur",
+  "version": "0.0.2",
   "description": "An icon & image generation tool for app developers.",
   "main": "./src/index.js",
   "bin": "./src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "iconosaur-cli",
+    "prebuild": "iconosaur-cli resources/test-input/test.svg resources/test-output",
     "build": "echo \"Done!\""
   },
   "repository": {

@@ -75,6 +75,14 @@ for (const outputConfig of config) {
     if (margin !== undefined && (innerHeight - (margin*2)) > 0.0) {
         innerHeight = height - (margin*2);
     }
+
+    if (innerWidth > width) {
+        innerWidth = width;
+    }
+    if (innerHeight > height) {
+        innerHeight = height;
+    }
+
     const imageIn = await (sharp(absInputPath).png().resize(innerWidth,innerHeight)).toBuffer();
 
     await sharp({

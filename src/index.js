@@ -66,7 +66,6 @@ const hexHash = hash.digest('hex');
 
 // Generate new job log JSON
 const newJobLogJson = {
-    timestamp: new Date().valueOf(),
     inputPath: absInputPath,
     outputPath: absOutputPath,
     urlPrefix: options.prefix,

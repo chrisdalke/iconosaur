@@ -8,6 +8,8 @@ You can embed Iconosaur as part of your web project's workflow as a pre-build st
 
 Iconosaur is *opinionated*: Instead of providing detailed options, we setup sane defaults that should be good enough for most projects. 
 
+![GitHub CI](https://github.com/chrisdalke/iconosaur/actions/workflows/test.yml/badge.svg)
+
 ## Usage
 
 ### 1. Installation

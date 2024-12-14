@@ -12,7 +12,7 @@ program
   .description('Command-line tool to generate common favicons & web icon formats.')
   .argument('<input>', 'Input image to process, any valid image format.')
   .option('--output [PATH]', 'Output folder to write images to.', './public/icons')
-  .option('--prefix [PATH]', 'Prefix for all URLs in the HTML output.', '/')
+  .option('--prefix [PATH]', 'Prefix for all URLs in the HTML output.', '/icons')
   .option('--quiet', 'Do not display any output.')
   .option('--force', 'Write output even if files appear to not have changed.')
 

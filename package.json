@@ -1,7 +1,7 @@
 {
   "name": "iconosaur",
   "version": "0.1.0",
-  "description": "An icon & image generation tool for app developers.",
+  "description": "A command-line tool to generate common favicons & web icon formats.",
   "main": "./src/index.js",
   "bin": "./src/index.js",
   "type": "module",

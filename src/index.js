@@ -95,14 +95,6 @@ fs.writeFileSync(absJobLogPath, JSON.stringify(newJobLogJson, null, 4), 'utf8');
 // Static config
 const config = [
     {
-        name: "64x64 raster icon",
-        filename: 'icon-64x64',
-        fileFormat: 'png',
-        width: 64,
-        height: 64,
-        margin: 0
-    },
-    {
         name: "Apple touch icon",
         filename: 'apple-touch-icon',
         fileFormat: 'png',
@@ -133,7 +125,63 @@ const config = [
         width: 96,
         height: 96,
         margin: 0
-    }
+    },
+    {
+        name: "192x192 web manifest icon",
+        filename: 'web-app-manifest-192x192',
+        fileFormat: 'png',
+        width: 192,
+        height: 192,
+        margin: 0
+    },
+    {
+        name: "512x512 web manifest icon",
+        filename: 'web-app-manifest-512x512',
+        fileFormat: 'png',
+        width: 512,
+        height: 512,
+        margin: 0
+    },
+    {
+        name: "32x32 general purpose image",
+        filename: 'icon-32x32',
+        fileFormat: 'png',
+        width: 32,
+        height: 32,
+        margin: 0
+    },
+    {
+        name: "64x64 general purpose image",
+        filename: 'icon-64x64',
+        fileFormat: 'png',
+        width: 64,
+        height: 64,
+        margin: 0
+    },
+    {
+        name: "128x128 general purpose image",
+        filename: 'icon-128x128',
+        fileFormat: 'png',
+        width: 128,
+        height: 128,
+        margin: 0
+    },
+    {
+        name: "256x256 general purpose image",
+        filename: 'icon-256x256',
+        fileFormat: 'png',
+        width: 256,
+        height: 256,
+        margin: 0
+    },
+    {
+        name: "512x512 general purpose image",
+        filename: 'icon-512x512',
+        fileFormat: 'png',
+        width: 512,
+        height: 512,
+        margin: 0
+    },
 ]
 
 // Generate all images
@@ -178,10 +226,42 @@ for (const outputConfig of config) {
     log(`\x1b[33m - ${name} (${filename}.${fileFormat}) \x1b[32m✓\x1b[0m`)
 }
 
+let projectName = 'site';
+
 let prefix = options.prefix;
 if (prefix.endsWith('/')) {
     prefix = prefix.slice(0,-1)
 }
+
+try {
+    if (fs.existsSync('package.json')) {
+        const packageJsonStr = fs.readFileSync('package.json');
+        const packageJsonContents = JSON.parse(packageJsonStr);
+        projectName = packageJsonContents.name;
+    }
+} catch (e) {}
+
+fs.writeFileSync(`${absOutputPath}/site.webmanifest`, JSON.stringify({
+    "name": projectName,
+    "short_name": projectName,
+    "icons": [
+      {
+        "src": prefix + "/web-app-manifest-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": prefix + "/web-app-manifest-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}, null, 4), 'utf8');
 
 log('');
 log('\x1b[33mIcon generation complete!\x1b[0m')

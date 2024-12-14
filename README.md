@@ -50,23 +50,34 @@ Before your `build` stage runs, npm will run `prebuild`, triggering iconosaur to
 
 ## Command-Line Options
 
-`--help`: Display help text.
+Use the `--help` flag to see all options:
 
-`--version`: Display version info.
+```
+> iconosaur --help
 
-`--output`: Output folder for icons. all files will be saved under this path, which will be created if it does not exist. Default is `./public/icons`.
+Usage: iconosaur [options] <input>
 
-`--prefix`: Prefix for the path to the icon files in the HTML. Default is `/`. For React applications, it may be useful to set this to `%PUBLIC_URL%/`.
+Command-line tool to generate common favicons & web icon formats.
 
-`--quiet`: Don't display any output.
+Arguments:
+  input            Input image to process, any valid image format.
+
+Options:
+  --output [PATH]  Output folder to write images to. (default: "./public/icons")
+  --prefix [PATH]  Prefix for all URLs in the HTML output. (default: "/")
+  --quiet          Do not display any output.
+  --force          Write output even if files appear to not have changed.
+  -h, --help       display help for command
+```
 
 ## Outputs
 
 `iconosaur` will write the following outputs under the output folder:
 
 - `apple-touch-icon.png`: Apple touch icon, 
-- `favicon.ico`: Browser favicon, 48x48px.
 - `favicon-96x96.png`:  Browser favicon, 96x96px.
+- `favicon-32x32.png`:  Browser favicon, 32x32px.
+- `favicon-16x16.png`:  Browser favicon, 16x16px.
 - `site.webmanifest`: Web app manifest for progressive web apps.
 - `web-app-manifest-192x192.png`: Icon included by web app manifest.
 - `web-app-manifest-512x512.png`: Icon included by web app manifest.

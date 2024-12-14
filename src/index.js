@@ -32,16 +32,16 @@ function log(str) {
 }
 
 // Check that input is valid.
-log(`\x1b[33mInput file: ${absInputPath}\x1b[0m`);
+// log(`\x1b[33mInput file: ${absInputPath}\x1b[0m`);
 if (!fs.existsSync(absInputPath)|| !fs.lstatSync(absInputPath).isFile()) {
-    log(`Input file does not exist!`);
+    log(`\x1b[31mInput file does not exist!\x1b[0m`);
     exit(1);
 }
 
 // Check that folder is valid.
-log(`\x1b[33mOutput folder: ${absOutputPath}\x1b[0m`);
+// log(`\x1b[33mOutput folder: ${absOutputPath}\x1b[0m`);
 if (fs.existsSync(absOutputPath) && !fs.lstatSync(absOutputPath).isDirectory()) {
-    log(`Output exists but is not a directory!`);
+    log(`\x1b[31mOutput exists but is not a directory!\x1b[0m`);
     exit(1);
 }
 
@@ -182,7 +182,7 @@ const config = [
 ]
 
 // Generate all images
-log('\x1b[33mGenerating icons:')
+log('\x1b[33mGenerating ' + config.length + ' icons:\n')
 for (const outputConfig of config) {
     const {
         name,
@@ -220,7 +220,7 @@ for (const outputConfig of config) {
     }).png().resize(width,height).composite([
         { input: imageIn }
     ]).toFile(`${absOutputPath}/${filename}.${fileFormat}`);
-    log(`\x1b[33m - ${name} (${filename}.${fileFormat}) \x1b[32m✓\x1b[0m`)
+    log(`\x1b[37m - ${name} (${filename}.${fileFormat}) \x1b[32m✓\x1b[0m`)
 }
 
 let projectName = 'site';
@@ -261,8 +261,7 @@ fs.writeFileSync(`${absOutputPath}/site.webmanifest`, JSON.stringify({
 }, null, 4), 'utf8');
 
 log('');
-log('\x1b[33mIcon generation complete!\x1b[0m')
-log('\x1b[33mAdd the following HTML snippet to your <head> block:\x1b[0m')
+log('\x1b[33mIcon generation complete! Add the following HTML to your <head> block:\x1b[0m')
 log(`\x1b[37m
 <link rel="apple-touch-icon" sizes="180x180" href="${prefix}/apple-touch-icon.png" />
 <link rel="icon" type="image/png" href="${prefix}/favicon-96x96.png" sizes="96x96" />

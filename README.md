@@ -29,9 +29,8 @@ To run iconosaur, invoke the CLI with the path to your input image.
 ```
 > iconosaur ./input.png
 
-Input file: /home/chris/input.png
-Output folder: public
-Generating icons:
+Generating 11 icons:
+
  - Apple touch icon (apple-touch-icon.png) ✓
  - 16x16 favicon (favicon-16x16.png) ✓
  - 32x32 favicon (favicon-32x32.png) ✓
@@ -44,8 +43,7 @@ Generating icons:
  - 256x256 general purpose image (icon-256x256.png) ✓
  - 512x512 general purpose image (icon-512x512.png) ✓
 
-Icon generation complete!
-Add the following HTML snippet to your <head> block:
+Icon generation complete! Add the following HTML to your <head> block:
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />

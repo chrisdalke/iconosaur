@@ -34,14 +34,14 @@ function log(str) {
 // Check that input is valid.
 // log(`\x1b[33mInput file: ${absInputPath}\x1b[0m`);
 if (!fs.existsSync(absInputPath)|| !fs.lstatSync(absInputPath).isFile()) {
-    log(`\x1b[31mInput file does not exist!\x1b[0m`);
+    log(`\x1b[31miconosaur: Input file does not exist!\x1b[0m`);
     exit(1);
 }
 
 // Check that folder is valid.
 // log(`\x1b[33mOutput folder: ${absOutputPath}\x1b[0m`);
 if (fs.existsSync(absOutputPath) && !fs.lstatSync(absOutputPath).isDirectory()) {
-    log(`\x1b[31mOutput exists but is not a directory!\x1b[0m`);
+    log(`\x1b[31miconosaur: Output exists but is not a directory!\x1b[0m`);
     exit(1);
 }
 

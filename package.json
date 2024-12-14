@@ -6,7 +6,7 @@
   "bin": "./src/index.js",
   "type": "module",
   "scripts": {
-    "test": "rm -rf resources/test-output && iconosaur resources/test-input/test.svg --output resources/test-output",
+    "test": "rm -rf test/outputs && iconosaur test/inputs/test.jpg --output test/outputs",
     "build": "echo \"Done!\""
   },
   "repository": {

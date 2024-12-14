@@ -5,10 +5,7 @@ import { resolve } from 'path';
 import fs from 'fs';
 import { exit } from 'process';
 import sharp from 'sharp';
-import Values from 'values.js'
 import crypto from 'crypto';
-import Color from 'color';
-
 
 program
   .name('iconosaur')

@@ -14,7 +14,7 @@
     "url": "git+https://github.com/chrisdalke/iconosaur.git"
   },
   "author": "Chris Dalke",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chrisdalke/iconosaur/issues"
   },

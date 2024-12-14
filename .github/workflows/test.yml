@@ -1,9 +1,12 @@
-name: release
-on:
-  release:
-    types: [published]
+name: test
+
+on: 
+  push:
+    branches: '**'
+    tags: '**'
+
 jobs:
-  release:
+  test:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -14,7 +17,5 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm install
+      - run: npm test

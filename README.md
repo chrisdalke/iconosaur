@@ -42,7 +42,7 @@ Update your package.json to run iconosaur as a prebuild script.
 {
     ...
     "build": "<your build stage>",
-    "prebuild": "iconosaur-cli <input> --quiet"
+    "prebuild": "iconosaur <input> --quiet"
 }
 ```
 

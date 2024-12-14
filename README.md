@@ -9,7 +9,7 @@ You can embed Iconosaur as part of your web project's workflow as a pre-build st
 Iconosaur is *opinionated*: Instead of providing detailed options, we setup sane defaults that should be good enough for most projects. 
 
 ![GitHub CI](https://github.com/chrisdalke/iconosaur/actions/workflows/test.yml/badge.svg)
-[![Node version](https://img.shields.io/node/v/iconosaur.svg?style=flat)](https://nodejs.org/download/)
+[![npm version](https://badge.fury.io/js/iconosaur.svg)](https://www.npmjs.com/package/iconosaur)
 
 ## Usage
 

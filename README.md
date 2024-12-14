@@ -1,12 +1,12 @@
 # iconosaur
 
-**`iconosaur` is a command-line tool which instantly generates all platform-specific app favicons & tiles from a single high-resolution input.**
+**`iconosaur` is a command-line tool to generate common favicons & web icon formats from a single high-resolution input.**
 
-`iconosaur` takes in a single input image and generates a number of common iOS, Android, and web images: App icons, social graph images, thumbnails, tiles, etc.
+`iconosaur` takes in a single input image and generates a number of common image formats and resolutions for web apps, along with the HTML to include them in your webpage.
 
-You can embed Iconosaur as part of your project's build workflow step as a pre-build step, or run as an individual tool.
+You can embed Iconosaur as part of your web project's workflow as a pre-build step, or run manually.
 
-See Supported Outputs for a list of available output types.
+Iconosaur is *opinionated*: Instead of providing many options, we setup sane defaults that should be good enough for most projects.
 
 ```
 iconosaur-cli icon.svg images

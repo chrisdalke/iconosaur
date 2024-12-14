@@ -6,91 +6,72 @@
 
 You can embed Iconosaur as part of your web project's workflow as a pre-build step, or run manually.
 
-Iconosaur is *opinionated*: Instead of providing many options, we setup sane defaults that should be good enough for most projects.
-
-```
-iconosaur-cli icon.svg images
-```
+Iconosaur is *opinionated*: Instead of providing detailed options, we setup sane defaults that should be good enough for most projects.
 
 ## Usage
 
-1. Install
+### 1. Installation
 
-## Supports
-
-- PNG or SVG Input Files
-- Configurable output settings
-  - Default output: All common Web, iOS, and Android icon sizes
-  - Customizable outputs from a JSON config
-- Automatic resizing & "best fit"
-- Background color and alpha support
-
-## Installation
-
-Iconosaur requires Node.JS v19 or above.
-
-#### To install globally:
-
-`npm install -g iconosaur`
-
-or
-
-`npx iconosaur`
-
-#### To install in your project:
-
-`npm install --dev iconosaur`
-
-## Usage
-
-As a CLI:
-
+Install the package globally from npm:
 ```
-iconosaur ./input.png --output ./dist/icons
+npm install -g iconosaur
 ```
 
-As a pre-build step in your Javascript application:
+Or as a development dependency:
+```
+npm install --dev iconosaur
+```
+
+### 2. Run Manually
+
+To run iconosaur, invoke the CLI with the path to your input image:
+
+```
+> iconosaur ./input.png
+```
+
+Iconosaur will generate all icons and will print the suggested HTML to add to the head of your HTML file. Once you have added the HTML manually, you do not need to repeat this step.
+
+### 3. Run as a Pre-Build step
+
+It may be useful to run iconosaur as a pre-built step, so when you change your icon file, all resolutions are automatically updated.
 
 Update your package.json to run iconosaur as a prebuild script.
 
 ```
 {
     ...
-    "prebuild": "iconosaur-cli <input> <output>",
+    "build": "<your build stage>",
+    "prebuild": "iconosaur-cli <input> --quiet"
 }
-
 ```
 
-For example, to take `./src/assets/img/icon.png` and produce icons in `public/icons/generated`:
+Before your `build` stage runs, npm will run `prebuild`, triggering iconosaur to generate new icons. Icon regeneration will be skipped if the contents of the input image have not changed.
 
-```
-iconosaur ./src/assets/img/icon.png ./public/icons/generated
-```
+## Command-Line Options
 
-To load these icons into your HTML, add these lines to your header:
+`--help`: Display help text.
 
-```
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/generated/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/generated/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/generated/favicon-16x16.png">
-<link rel="manifest" href="/icons/generated/site.webmanifest">
-<link rel="mask-icon" href="/icons/generated/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-```
+`--version`: Display version info.
 
-To use a custom config:
+`--output`: Output folder for icons. all files will be saved under this path, which will be created if it does not exist. Default is `./public/icons`.
 
-```
-iconosaur ./src/assets/img/icon.png ./public/icons/generated --config ./iconosaur-config.json
-```
+`--prefix`: Prefix for the path to the icon files in the HTML. Default is `/`. For React applications, it may be useful to set this to `%PUBLIC_URL%/`.
 
-## Configuration API
-
-## Inputs
+`--quiet`: Don't display any output.
 
 ## Outputs
 
-## License
+`iconosaur` will write the following outputs under the output folder:
 
-MIT
+- `apple-touch-icon.png`: Apple touch icon, 
+- `favicon.ico`: Browser favicon, 48x48px.
+- `favicon-96x96.png`:  Browser favicon, 96x96px.
+- `site.webmanifest`: Web app manifest for progressive web apps.
+- `web-app-manifest-192x192.png`: Icon included by web app manifest.
+- `web-app-manifest-512x512.png`: Icon included by web app manifest.
+- `icon-32x32.png`: General-purpose 32x32px icon.
+- `icon-64x64.png`: General-purpose 64x64px icon.
+- `icon-128x128.png`: General-purpose 128x128px icon.
+- `icon-256x256.png`: General-purpose 256x256px icon.
+- `icon-512x512.png`: General-purpose 512x512px icon.
